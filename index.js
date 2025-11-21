@@ -972,6 +972,7 @@ const wrapIt = (config, bodyAttr, headers, title, body) => {
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="/plugins/public/material-design${verstring}/js/mdb.min.js"></script>
     <script type="text/javascript" src="/plugins/public/material-design${verstring}/js/reinit-dropdowns.js"></script>
+    <script type="text/javascript" src="/plugins/public/material-design${verstring}/js/sidebar-toggle.js"></script>
     <!-- Bind window.mdb to window.bootstrap for backward compatibility -->
     <script>
       window.bootstrap = window.mdb;
@@ -1183,6 +1184,7 @@ const vertical_sidebar_sections = (
   config,
   user
 ) =>
+  // Brand row at the top
   (brand &&
     a(
       {
@@ -1199,18 +1201,37 @@ const vertical_sidebar_sections = (
         }),
       (!config?.hide_site_name || !brand.logo) && brand.name
     )) +
+  // Divider under brand
   horizontalLineItem() +
+  // Primary menu (main nav links) + compact toggle at the bottom of this list
   ul(
     {
       class: "nav w-100 flex-column flex-nowrap overflow-y-auto",
     },
-    [...primary].map(sideBarSection(currentUrl, config, user))
+    [
+      ...[...primary].map(sideBarSection(currentUrl, config, user)),      
+      li(
+        { class: "nav-item d-none d-lg-block mt-3 text-center" },
+        button(
+          {
+            id: "sidebarToggle",
+            class: "btn btn-outline-secondary btn-sm mx-auto",
+            type: "button",
+            "aria-label": "Toggle compact sidebar",
+            title: "Toggle compact sidebar",
+          },
+          span({ class: "me-1" }, i({ class: "bi bi-layout-sidebar" })),
+          "Compact"
+        )
+      ),
+    ]
   ) +
   horizontalLineItem(["mt-auto"]) +
   ul(
     { class: "nav w-100 flex-column flex-nowrap" },
     [...secondary].map(sideBarSection(currentUrl, config, user))
   );
+
 
 const vertical_header_sections = (
   brand,

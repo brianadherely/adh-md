@@ -3,7 +3,7 @@
   width: 280px;
   height: 100vh;
   justify-content: start;
-  align-items: start;
+  align-items: center;
 }
 
 .sidenav-zIndex {
@@ -104,4 +104,33 @@ body:has(.sidenav) {
   body:has(.sidenav) {
     margin-left: 0;
   }
+}
+
+/* === Slim sidebar mode ================================== */
+
+body.sidebar-slim .sidenav {
+  width: 70px;
+}
+
+body.sidebar-slim .sidenav .nav-link {
+  justify-content: center;
+  text-align: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 0;
+}
+
+body.sidebar-slim .sidenav .nav-link span {
+  font-size: 1rem;
+}
+
+body.sidebar-slim .sidenav .navbar-brand,
+body.sidebar-slim .sidenav .navbar-brand .navbar-brand-text {
+  justify-content: center;
+}
+
+body.sidebar-slim .sc-main,
+body.sidebar-slim .page-wrapper,
+body.sidebar-slim main {
+  margin-left: 70px !important;
 }

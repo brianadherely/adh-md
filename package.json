@@ -10,7 +10,7 @@
     "@saltcorn/markup": "^0.2.3",
     "@saltcorn/data": "^0.2.3"
   },
-  "author": "Tom Nielsen",
+  "author": "BB",
   "license": "MIT",
   "devDependencies": {
     "jest": "^25.1.0"
