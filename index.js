@@ -595,11 +595,11 @@ const wrapIt = (config, bodyAttr, headers, title, body) => {
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <!-- Material Design Bootstrap -->
-    <link href="/plugins/public/material-design${verstring}/css/${cssFile}" rel="stylesheet">
+    <link href="/plugins/public/adh-md${verstring}/css/${cssFile}" rel="stylesheet">
     <!-- Plugin Custom Styles -->
-    <link href="/plugins/public/material-design${verstring}/css/sidenav.css" rel="stylesheet">
-    <!-- Material-design plugin overrides (ensure alternating table row colors in dark/light modes) -->
-    <link href="/plugins/public/material-design${verstring}/css/table-rows.css" rel="stylesheet">
+    <link href="/plugins/public/adh-md${verstring}/css/sidenav.css" rel="stylesheet">
+    <!-- adh-md plugin overrides (ensure alternating table row colors in dark/light modes) -->
+    <link href="/plugins/public/adh-md${verstring}/css/table-rows.css" rel="stylesheet">
     ${headersInHead(headers)}
     <style>
     :root,
@@ -968,11 +968,11 @@ const wrapIt = (config, bodyAttr, headers, title, body) => {
   }">
     ${body}
       <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/plugins/public/material-design${verstring}/js/popper.min.js"></script>
+    <script type="text/javascript" src="/plugins/public/adh-md${verstring}/js/popper.min.js"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="/plugins/public/material-design${verstring}/js/mdb.min.js"></script>
-    <script type="text/javascript" src="/plugins/public/material-design${verstring}/js/reinit-dropdowns.js"></script>
-    <script type="text/javascript" src="/plugins/public/material-design${verstring}/js/sidebar-toggle.js"></script>
+    <script type="text/javascript" src="/plugins/public/adh-md${verstring}/js/mdb.min.js"></script>
+    <script type="text/javascript" src="/plugins/public/adh-md${verstring}/js/reinit-dropdowns.js"></script>
+    <script type="text/javascript" src="/plugins/public/adh-md${verstring}/js/sidebar-toggle.js"></script>
     <!-- Bind window.mdb to window.bootstrap for backward compatibility -->
     <script>
       window.bootstrap = window.mdb;
@@ -1085,7 +1085,7 @@ const wrapIt = (config, bodyAttr, headers, title, body) => {
         }
       })();
     </script>
-    <script type="text/javascript" src="/plugins/public/material-design${verstring}/js/mdb-jquery-bridge.js"></script>
+    <script type="text/javascript" src="/plugins/public/adh-md${verstring}/js/mdb-jquery-bridge.js"></script>
     <script>
       // Enable hover for nested dropdowns in horizontal navbar and vertical sidebar
       (function () {
@@ -1923,16 +1923,16 @@ module.exports = {
   layout,
   configuration_workflow,
   user_config_form,
-  plugin_name: "material-design",
+  plugin_name: "adh-md",
   actions: () => ({
     toggle_material_dark_mode: {
       description: "Switch between dark and light mode",
       configFields: [],
       run: async ({ user, req }) => {
-        let plugin = await Plugin.findOne({ name: "material-design" });
+        let plugin = await Plugin.findOne({ name: "adh-md" });
         if (!plugin) {
           plugin = await Plugin.findOne({
-            name: "@saltcorn/material-design",
+            name: "adh-md",
           });
         }
         const dbUser = await User.findOne({ id: user.id });
