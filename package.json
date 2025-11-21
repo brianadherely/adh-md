@@ -1,7 +1,7 @@
 {
-  "name": "@saltcorn/material-design",
+  "name": "adh-md",
   "version": "0.4.1",
-  "description": "Material Design theme based on mdbootstrap",
+  "description": "Material Design theme based on mdbootstrap for Adhere.ly",
   "main": "index.js",
   "scripts": {
     "test": "jest"
